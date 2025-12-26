@@ -16,8 +16,8 @@ const config = {
 
   organizationName: 'kubepattern',
   projectName: 'kubepattern-doc',
-
-  onBrokenLinks: 'warn',
+  
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -33,14 +33,23 @@ const config = {
         docs: {
           routeBasePath: 'docs',
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/kubepattern/kubepattern-doc/tree/main/',
+          editUrl: 'https://github.com/kubepattern/doc/tree/main/',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/kubepattern/kubepattern-doc/tree/main/',
+          editUrl: 'https://github.com/kubepattern/doc/tree/main/',
+        },
+        pages: {
+          // Enable pages for privacy and terms
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
       }),
     ],
