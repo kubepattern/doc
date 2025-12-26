@@ -11,12 +11,12 @@ const config = {
     v4: true,
   },
 
-  url: 'https://docs.kubepattern.dev',
+  url: 'https://kubepattern.dev',
   baseUrl: '/',
 
   organizationName: 'kubepattern',
   projectName: 'kubepattern-doc',
-  
+
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
