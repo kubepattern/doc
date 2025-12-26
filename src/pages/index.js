@@ -151,7 +151,7 @@ function HowItWorks() {
             </ul>
             <Link
               className={clsx('button button--primary button--lg', styles.buttonPrimary)}
-              to="/docs">
+              to="/docs/getting-started">
               <BookIcon /> Read the Docs
             </Link>
           </div>
