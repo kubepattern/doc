@@ -10,5 +10,5 @@ sidebar_position: 5
 - 💬[**Questions & Community (Telegram)**](https://t.me/+WUtGohZ5ZS44MjQ0)
 
 ## Contacts
-- [gabriele.groppo03@gmail.com](mailto:gabriele.groppo03@gmail.com)
+- [hello@gabrielegroppo.it](mailto:hello@gabrielegroppo.it)
 - [gabrielegroppo.it](https://gabrielegroppo.it)

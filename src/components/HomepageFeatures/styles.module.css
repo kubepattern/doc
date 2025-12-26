@@ -1,11 +1,23 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureIcon {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.featureIcon i {
+  font-size: 3rem;
+  color: var(--ifm-color-primary);
+  /* Effetto hover simile all'originale */
+  transition: transform 0.3s ease;
+}
+
+.featureIcon:hover i {
+  transform: translateY(-5px);
 }
