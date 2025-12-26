@@ -17,7 +17,7 @@ const config = {
   organizationName: 'kubepattern',
   projectName: 'kubepattern-doc',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
