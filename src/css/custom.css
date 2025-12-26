@@ -24,8 +24,7 @@
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  
-  --ifm-navbar-background-color: #0A0E27;
+  --ifm-navbar-background-color: #ffffff;  
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(50, 108, 229, 0.1);
   --ifm-footer-background-color: #151B3D;
   --ifm-background-color: #ffffff;
@@ -50,11 +49,11 @@
   --ifm-background-surface-color: #151B3D;
 }
 
-/* Navbar Customization */
 .navbar {
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  backdrop-filter: blur(10px);
-  background-color: var(--ifm-navbar-background-color) !important;
+  background-color: rgba(255, 0, 0, 0.2) !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 [data-theme='light'] .navbar {
@@ -63,8 +62,9 @@
 }
 
 [data-theme='dark'] .navbar {
-  background-color: #0A0E27 !important;
-  border-bottom: 1px solid rgba(50, 108, 229, 0.1);
+  background-color: rgba(10, 14, 39, 0.9) !important; /* Leggera trasparenza per il blur */
+  border-bottom: 1px solid rgba(50, 108, 229, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Aggiunge profondità */
 }
 
 .navbar__logo {
