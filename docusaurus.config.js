@@ -55,20 +55,6 @@ const config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/docs/overview',
-            from: '/docs',
-          },
-        ],
-      },
-    ],
-  ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -135,7 +121,7 @@ const config = {
               },
               {
                 label: 'Overview',
-                to: '/docs/overview',
+                to: '/docs',
               },
               {
                 label: 'API Reference',
