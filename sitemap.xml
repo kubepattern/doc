@@ -8,77 +8,77 @@
 
 
 <url>
-  <loc>https://docs.kubepattern.it/</loc>
+  <loc>https://kubepattern.dev/docs/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/getting-started/</loc>
+  <loc>https://kubepattern.dev/docs/getting-started/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/roadmap/</loc>
+  <loc>https://kubepattern.dev/docs/roadmap/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/contributing/</loc>
+  <loc>https://kubepattern.dev/docs/contributing/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubepattern-core/graph/</loc>
+  <loc>https://kubepattern.dev/docs/kubepattern-core/graph/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubernetes-patterns/patterns/</loc>
+  <loc>https://kubepattern.dev/docs/kubernetes-patterns/patterns/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/pattern-as-code/what-is-pac/</loc>
+  <loc>https://kubepattern.dev/docs/pattern-as-code/what-is-pac/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubepattern-core/resources/</loc>
+  <loc>https://kubepattern.dev/docs/kubepattern-core/resources/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubepattern-core/resource-filters/</loc>
+  <loc>https://kubepattern.dev/docs/kubepattern-core/resource-filters/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubepattern-core/relationships/</loc>
+  <loc>https://kubepattern.dev/docs/kubepattern-core/relationships/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubepattern-core/api/</loc>
+  <loc>https://kubepattern.dev/docs/kubepattern-core/api/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/kubernetes-patterns/tassonomy/</loc>
+  <loc>https://kubepattern.dev/docs/kubernetes-patterns/tassonomy/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/pattern-as-code/how-to-write-pac/</loc>
+  <loc>https://kubepattern.dev/docs/pattern-as-code/how-to-write-pac/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/pattern-as-code/publish-pac/</loc>
+  <loc>https://kubepattern.dev/docs/pattern-as-code/publish-pac/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.kubepattern.it/pattern-as-code/pac-api/</loc>
+  <loc>https://kubepattern.dev/docs/pattern-as-code/pac-api/</loc>
   <lastmod>2025-11-01T11:31:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
