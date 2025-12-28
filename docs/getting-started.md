@@ -94,3 +94,25 @@ registry-repo-name/
 └── README.md
 
 ```
+
+## Write Your Patterns
+You can create custom patterns by defining them in JSON format. Refer to the [Pattern Definition Guide](https://kubepattern.dev/docs/pattern-as-code/pac-api) for detailed instructions on how to write and structure your patterns.
+
+Then push your patterns to your registry repository in `definitions` folder and configure KubePattern to use your custom registry by updating the Helm values accordingly.
+
+## Run Analysis Manually
+You can run KubePattern analysis using the API.
+Refer to the [API Documentation](https://kubepattern.dev/docs/kubepattern-core/api) for detailed instructions on how to trigger analysis and retrieve results programmatically.
+
+### Manual Analysis Warning
+:::warning
+
+It is not reccomended to expose KubePattern API outside your cluster without proper security measures.
+
+Better way to trigger analysis is run a Job and trigger analysis using curl utility inside the cluster. 
+
+:::
+
+### Sheduled Analysis
+
+The Better way is to use the Helm chart with Cronjob enabled to run periodic analysis on your cluster.
