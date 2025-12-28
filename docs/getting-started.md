@@ -72,3 +72,25 @@ patternRegistry:
     token: ""
 
 ```
+
+## Take a Look at Pattern as Code Registry
+KubePattern uses an external Pattern Registry to define and manage patterns. You can explore the official registry at [KubePattern Registry](https://github.com/kubepattern/registry) to see available patterns and their definitions.
+
+You can also create your own registry by following the structure and guidelines provided in the official repository.
+
+//structure example
+
+```plaintext
+
+registry-repo-name/
+├── definitions/
+│   ├── pattern-1.json
+│   ├── pattern-2.json
+│   └── ...
+├── doc/
+│   ├── pattern-1-doc.md
+│   ├── pattern-2-doc.md
+│   └── ...
+└── README.md
+
+```
