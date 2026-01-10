@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
-// Font Awesome icons
+// Font Awesome icons (Ho aggiunto icone per gli use cases)
 const RocketIcon = () => <i className="fas fa-rocket"></i>;
 const PlayIcon = () => <i className="fas fa-play-circle"></i>;
 const BookIcon = () => <i className="fas fa-book"></i>;
@@ -43,6 +43,71 @@ function HomepageHeader() {
     </header>
   );
 }
+
+// --- NUOVA SEZIONE USE CASES ---
+
+const UseCaseList = [
+  {
+    title: 'CI/CD Pipelines',
+    icon: <i className="fas fa-shipping-fast"></i>,
+    description: (
+      <>
+        Integrate KubePattern into your CI/CD pipeline to block misconfigurations and anti-patterns before they reach production.
+      </>
+    ),
+  },
+    {
+    title: 'Custom Resources Governance',
+    icon: <i className="fas fa-balance-scale"></i>,
+    description: (
+      <>
+        Enhance CRD governance by enforcing complex logical patterns across multiple resources and namespaces.
+      </>
+    ),
+  },
+  {
+    title: 'Cluster Auditing',
+    icon: <i className="fas fa-stethoscope"></i>,
+    description: (
+      <>
+        Perform a comprehensive scan of existing clusters to identify technical debt, “smells,” and opportunities for architectural refactoring.
+      </>
+    ),
+  }
+];
+
+function UseCase({icon, title, description}) {
+  return (
+    <div className={clsx('col col--4', styles.useCaseCol)}>
+      <div className={styles.useCaseCard}>
+        <div className={styles.useCaseIcon}>{icon}</div>
+        <h3 className={styles.useCaseTitle}>{title}</h3>
+        <p className={styles.useCaseDescription}>{description}</p>
+      </div>
+    </div>
+  );
+}
+
+function UseCasesSection() {
+  return (
+    <section className={styles.useCases}>
+      <div className="container">
+        <div className={styles.featuresHeader}>
+          <h2 className={styles.sectionTitle}>Use Cases</h2>
+          <p className={styles.sectionSubtitle}>
+            Dove KubePattern fa la differenza
+          </p>
+        </div>
+        <div className="row">
+          {UseCaseList.map((props, idx) => (
+            <UseCase key={idx} {...props} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+// --- FINE NUOVA SEZIONE ---
 
 const FeatureList = [
   {
@@ -221,6 +286,8 @@ export default function Home() {
       description="Kubernetes Pattern Recognition Made Simple">
       <HomepageHeader />
       <main>
+        {/* UseCasesSection inserita prima di HomepageFeatures */}
+        <UseCasesSection /> 
         <HomepageFeatures />
         <HowItWorks />
         <CallToAction />

@@ -450,3 +450,68 @@
     font-size: 0.75rem;
   }
 }
+
+/* Use Cases Section */
+.useCases {
+  padding: 5rem 2rem;
+  background: var(--ifm-background-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .useCases {
+  background: #0d1233; /* Slightly different from hero and features */
+  border-bottom: 1px solid rgba(50, 108, 229, 0.1);
+}
+
+.useCaseCol {
+  margin-bottom: 2rem;
+}
+
+.useCaseCard {
+  text-align: center;
+  padding: 2rem;
+  height: 100%;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+[data-theme='dark'] .useCaseCard {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.useCaseCard:hover {
+  transform: translateY(-5px);
+}
+
+.useCaseIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+  background: rgba(50, 108, 229, 0.1);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.useCaseTitle {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.useCaseDescription {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+[data-theme='dark'] .useCaseDescription {
+  color: #8B92B8;
+}
