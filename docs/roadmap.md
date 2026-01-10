@@ -18,9 +18,11 @@ This roadmap represents my current vision and priorities. It is not a delivery p
 
 *Features and improvements we are actively building **right now**.*
 
+* [ ] **Thesis writing** Writing my thesis about KubePattern and Platform Engineering
 * [ ] **Refactoring** Improving code quality
 * [ ] **Analysis report** A report to summarize analysis (patterns hits/errors/...)
 * [ ] **Relationship & Common Relationships orchetration** Better handle both relationships & common relationships
+* [ ] **Snooze patterns** Ability to snooze patterns based on labels
 
 ## 🎯 Next (Planned)
 

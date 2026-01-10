@@ -211,7 +211,7 @@ metadata:
   name: kubepattern-daily-scan
   namespace: pattern-analysis-ns
 spec:
-  schedule: "0 2 * * *"  # Daily at 2 AM
+  schedule: @daily
   jobTemplate:
     spec:
       template:
@@ -222,36 +222,15 @@ spec:
             command:
             - /bin/sh
             - -c
-            - curl -X POST http://kubepattern-api:8080/analyzeCluster
+            - curl -X POST http://kubepattern-api:8080/analysis/cluster
           restartPolicy: OnFailure
-```
-
-### Export Graph for Visualization
-```bash
-# Export cluster topology
-curl http://kubepattern-api:8080/cluster/graph | jq . > cluster_topology.json
-
-# Pretty print with metadata
-curl -s http://kubepattern-api:8080/cluster/graph | \
-  jq '{cluster: .clusterName, resources: (.graph.vertices | length), relationships: (.graph.edges | length)}'
-```
-
-### Monitor Pattern Trends
-```bash
-# Count patterns by confidence level
-kubectl get k8sp -n pattern-analysis-ns -o json | \
-  jq '[.items[].spec.confidence] | group_by(.) | map({confidence: .[0], count: length})'
-
-# List high-confidence structural patterns
-kubectl get k8sp -n pattern-analysis-ns -o json | \
-  jq '.items[] | select(.spec.confidence=="HIGH" and .spec.type=="STRUCTURAL") | {name: .spec.name, resources: [.spec.resources[].name]}'
 ```
 
 ---
 
 ## Analysis Workflow
 
-1. **Request**: API receives analysis trigger (`/analyzeCluster` or `/analyzeNamespace`)
+1. **Request**: API receives analysis trigger (`/analysis/cluster` or `/analysis/namespace/{namespace}`)
 2. **Async Execution**: Background thread starts pattern matching process
 3. **Graph Construction**: Builds/updates resource and relationship graph
 4. **Pattern Matching**: Evaluates all patterns from Pattern-as-Code registry
@@ -265,7 +244,7 @@ kubectl get k8sp -n pattern-analysis-ns -o json | \
 
 - All analysis endpoints execute **asynchronously** (immediate HTTP response, background processing)
 - Pattern detection uses the complete Pattern-as-Code registry
-- All detected patterns are stored in the `pattern-analysis-ns` namespace
+- All detected patterns are stored in the `pattern-analysis-ns` namespace by default (can be stored in resource namespaces if configured)
 - Graph endpoint provides **real-time** cluster topology snapshot
 - CRDs use the group `kubepattern.it` and version `v1`
 - Short name `k8sp` available for convenience
