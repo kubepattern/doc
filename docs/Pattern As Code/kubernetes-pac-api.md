@@ -7,7 +7,7 @@ slug: /pattern-as-code/pac-api
 
 # Kubernetes Pattern Detection API Documentation
 
-## API version `v1.1.0`
+## API version `v1`
 
 ## Overview
 

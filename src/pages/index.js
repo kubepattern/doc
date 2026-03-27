@@ -32,11 +32,6 @@ function HomepageHeader() {
               to="/docs/getting-started">
               <RocketIcon /> Get Started
             </Link>
-            <Link
-              className={clsx('button button--secondary button--lg', styles.buttonSecondary)}
-              to="#how-it-works">
-              <PlayIcon /> See How It Works
-            </Link>
           </div>
         </div>
       </div>
@@ -207,11 +202,6 @@ function CallToAction() {
           className={clsx('button button--primary button--lg', styles.ctaButton)}
           to="https://github.com/kubepattern/kubepattern">
           <GitHubIcon /> View on GitHub
-        </Link>
-        <Link
-          className={clsx('button button--primary button--lg', styles.buttonPrimary)}
-          to="/docs/getting-started">
-          <BookIcon /> Read the Docs
         </Link>
       </div>
     </section>

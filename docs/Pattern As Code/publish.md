@@ -31,7 +31,7 @@ Add your pattern file in the `definitions/` folder:
 
 ### 3. Submit a pull request
    
-   Once your pattern is ready, open a PR to merge it into the official registry.
+Once your pattern is ready, open a PR to merge it into the official registry.
 
 ---
 

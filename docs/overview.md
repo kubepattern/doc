@@ -5,22 +5,9 @@ slug: /
 ---
 # Overview
 
-KubePattern is an innovative static analysis tool for Kubernetes manifests that goes beyond traditional linting, focusing on recognizing and suggesting cloud-native architectural patterns.
-
-:::warning
-
-KubePattern is also my Bachelor Degree Thesis Project and is **currently under development**. 
-It will be fully open source on march 2026.
-
-Have a look and stay tuned if you have further question please [contact me](https://kubepattern.dev/docs/contacts).
-
-A special thanks to [Sigemi](https://www.sigemi.it/) and for the knoledge the tools and the opportunity to build KubePattern during my internship.
-
-:::
-
 ## What is KubePattern?
 
-KubePattern is a pattern-oriented validation tool that analyzes Kubernetes configurations to identify opportunities for applying architectural patterns and detect configuration "smells" that deviate from community best practices and corporate policies.
+KubePattern is an innovative analysis tool for Kubernetes that goes beyond traditional linting, focusing on recognizing smells and suggesting cloud-native architectural patterns.
 
 ## Key Features
 
@@ -53,7 +40,7 @@ KubePattern is developed in **Java** and uses:
 - **JsonPath**: Library used to interpret pattern definitions (JSON)
 - **Custom Resource Definitions (CRD)**: Results are exposed as native Kubernetes resources
 
-The tool creates Custom Resources (`K8sPattern`) that represent identified patterns, making results easily integrable with other Kubernetes tools.
+The tool creates Custom Resources (`Pattern`) that represent identified patterns, making results easily integrable with other Kubernetes tools.
 
 ## Output and Reporting
 

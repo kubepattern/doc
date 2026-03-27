@@ -14,7 +14,7 @@ As an open-source project, we thrive on community support, and every contributio
 
 Here are some of the best ways to contribute:
 
-* **Define New Patterns:** This is the most unique and impactful way to help. Thanks to our **Pattern-as-Code** approach, you can contribute new architectural patterns simply by creating or updating a JSON file. If you have identified a common best practice, a security vulnerability, or a reliability pattern, please share it! Check out our [Pattern Catalog](https://github.com/GabrieleGroppo/kubepattern-registry) to get started.
+* **Define New Patterns:** This is the most unique and impactful way to help. Thanks to our **Pattern-as-Code** approach, you can contribute new architectural patterns simply by creating or updating a JSON file. If you have identified a common best practice, a security vulnerability, or a reliability pattern, please share it! Check out our [Pattern Catalog](https://github.com/kubepattern/registry) to get started.
 * **Report Bugs:** If you find something that isn't working as expected, please [open an issue](https://github.com/GabrieleGroppo/kubepattern/issues) on GitHub. Be sure to include steps to reproduce the problem and any relevant manifest files.
 * **Suggest Enhancements:** Have an idea for a new feature or an improvement to an existing one? We'd love to hear it. You can [open an issue](https://github.com/GabrieleGroppo/kubepattern/issues) to start a discussion.
 * **Improve Documentation:** Good documentation is key. If you find a typo, think a section is unclear, or want to add a new tutorial, you can submit a pull request to our documentation.
