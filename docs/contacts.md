@@ -2,7 +2,7 @@
 title: Contacts
 description: Questions, Feedback, Support, Community
 slug: /contacts
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 ## Quink links
