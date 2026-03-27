@@ -124,8 +124,8 @@ const config = {
                 to: '/docs',
               },
               {
-                label: 'API Reference',
-                to: '/docs/kubepattern-core/api',
+                label: 'Pattern as Code',
+                to: '/docs/core/pattern-as-code',
               },
               {
                 label: 'Pattern Catalog',
