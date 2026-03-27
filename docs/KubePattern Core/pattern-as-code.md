@@ -10,7 +10,6 @@ slug: /core/pattern-as-code
 
 **Pattern-as-Code (PaC)** is a Kubernetes Custom Resource Definition (CRD) that allows you to define metrics and **patterns** to recognize Kubernetes resources that deviate from architectural principles and best practices. They also are comprehensive of a remediation reverence documentation and a severity level to prioritize the most critical issues.
 
----
 # API Documentation
 
 The **API** allows you to write **rules** to identify **Smells** and their remediation strategies within the Kubernetes Cluster.
