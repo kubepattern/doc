@@ -5,6 +5,10 @@ slug: /
 ---
 # Overview
 
+:::warning
+The Java version is no longer maintained and will not receive updates or support. Please migrate to the Go version to benefit from improved performance, reliability, and new features.
+:::
+
 ## What is KubePattern?
 
 KubePattern is an innovative analysis tool for Kubernetes that goes beyond traditional linting, focusing on recognizing smells and suggesting cloud-native architectural patterns.
@@ -21,52 +25,30 @@ KubePattern adopts a declarative approach where patterns are defined through ext
 ### Architectural Pattern Recognition
 
 Unlike traditional linters that only verify field presence, KubePattern:
-- Identifies complex patterns such as **Sidecar**, **Health Probe**, **Predictable Demands**
+- Identifies complex patterns violations such as missing **Health Probe** or **Predictable Demands**
 - Analyzes relationships between multiple resources
 - Provides contextual suggestions with reference documentation
 
-### Scoring and Confidence System
+### Comprehensive Reporting
 
 Each detected pattern includes:
-- **Confidence Level**: Probability that the pattern has been correctly identified (LOW/MEDIUM/HIGH)
 - **Severity**: Criticality level (INFO/WARNING/CRITICAL)
-- **Category**: Application scope (Reliability/Security/Performance)
-- **Scores**: Detailed scores for each performed check
+- **Category**: Classification (e.g., reliability, security, cost)
+- **Message**: Customizable message to explain the issue
+- **Remediation Reference**: Link to documentation for fixing the issue
 
-## Architecture
+## Architecture & Mechanics
+The KubePattern Go engine operates as an in-cluster analyzer. It automatically builds a relational graph of your Kubernetes resources, fetches remote definitions, and evaluates them against your live cluster state.
 
-KubePattern is developed in **Java** and uses:
-- **Official Kubernetes Java Client**: Library used to read and apply resources on the cluster
-- **JsonPath**: Library used to interpret pattern definitions (JSON)
-- **Custom Resource Definitions (CRD)**: Results are exposed as native Kubernetes resources
+KubePattern is developed in **Go** and consists of the following components:
+- **Core Engine**: Responsible for loading patterns, analyzing cluster state, and generating reports
+- **Pattern Registry**: A collection of predefined patterns that can be easily extended
+- **Linter**: An utility to validate pattern definitions for correctness and consistency
+- **Pattern Registry**: KubePattern evaluates the cluster against definitions stored in the **Pattern-as-Code** registry. You can browse the official definitions here: [Pattern as Code Registry](https://github.com/kubepattern/registry).
+- **CRD Output**: The engine generates and manages `Smell` Custom Resources (`smells.kubepattern.dev`) to persist analysis results directly inside the cluster, natively integrating with Kubernetes RBAC and APIs.
+- **Execution**: Deployed via Helm, it runs as a lightweight `CronJob`, periodically scanning the cluster without consuming idle resources.
 
-The tool creates Custom Resources (`Pattern`) that represent identified patterns, making results easily integrable with other Kubernetes tools.
 
-## Output and Reporting
 
-Analysis results are available as Kubernetes CRDs
 
-### Custom Resource Definition (CRD)
-```yaml
-apiVersion: sigemi.it/v1
-kind: K8sPattern
-metadata:
-  name: sidecar-pattern-0i9j-8k7l6m5n4o3p
-  namespace: pattern-analysis-ns
-spec:
-  name: Sidecar
-  type: Structural
-  severity: INFO
-  category: Reliability
-  confidence: HIGH
-  scores:
-    shared-volume-mount: 60
-    similar-replica-count: 40
-  resources:
-    - name: main-app
-      namespace: development
-      uid: 9a7b6c5d-4e3f-2g1h-0i9j-8k7l6m5n4o3p
-    - name: fluent
-      namespace: development
-      uid: 1b2c3d4e-5f6g-7h8i-9j0k-1l2m3n4o5p6q
-```
+

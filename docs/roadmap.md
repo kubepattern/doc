@@ -16,42 +16,10 @@ This roadmap represents my current vision and priorities. It is not a delivery p
 
 ## 🚀 Now (In Progress)
 
-*Features and improvements we are actively building **right now**.*
-
-* [ ] **Thesis writing** Writing my thesis about KubePattern and Platform Engineering
-* [ ] **Refactoring** Improving code quality
-* [ ] **Analysis report** A report to summarize analysis (patterns hits/errors/...)
-* [ ] **Relationship & Common Relationships orchetration** Better handle both relationships & common relationships
-* [ ] **Snooze patterns** Ability to snooze patterns based on labels
-
 ## 🎯 Next (Planned)
 
-*Features I will be working on **immediately after** what's currently in progress.*
-
-* [ ] **API to build patterns with AI** Build patterns using AI based on you current cluster context and Online Kubernetes Best Practices.
-    * [ ] set resource limit based on number of crashes.
-
-* [ ] **Dynamic Analysis:** Dynamic analysis to improve complex patterns confidence score precision.
-
 ## 🤔 Later (Considering)
-
-*Popular ideas and requests I am evaluating for the future. Your feedback here is crucial to help prioritize!*
-
-* [ ] **Relationship As Code:** Defining relationships through json or yaml.
-* [ ] **Score pattern confidence using AI:** AI Scoring.
-* [ ] **Web dashboard:** View Patterns and Resource Graph in a web dashboard.
-* [ ] **Composable patterns:** make patterns use other patterns to reduce pattern duplications.
-* [ ] **JQ queries for filters:** using more powerful jq queries for filtering resource (they are also more complex to build).
 
 ## ✅ Recently Launched
 
 *The big features recentely launched 🚀*
-
-* [x] **Pattern As Code Linter:** Lint your pattern as code with API and prevent malformed pattern from being analyzed.
-* [x] **CRD output:** A CRD output for found patterns. 
-* [x] **ChroneJob** Building a chronejob to periodically trigger pattern analysis
-* [x] **ServiceAccount** Building a service account to allow kubepattern to contact cluster
-* [x] **Role & Cluster Role** Building a service account to allow cluster reosurces access to kubepattern
-* [x] **Serice to Expose Deployment** Building a service to access KubePattern APIs inside the cluster
-* [x] **Deployment** Deployment to guarantee service continuity
-* [x] **Array FilterOpeators:** new FilterOperators to check array size

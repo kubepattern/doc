@@ -5,79 +5,65 @@ title: Getting Started
 slug: /getting-started
 ---
 # Getting started
+Welcome to KubePattern! This guide will help you get up and running with KubePattern in no time. Whether you're a Kubernetes novice or an experienced operator, this guide will walk you through the essential steps to start using KubePattern effectively.
 
-## Deploy KubePattern Using Helm
+---
 
-This is the convenient way to deploy KubePattern on your Kubernetes cluster.
+## Installation
 
-### Prerequisites
-- A Kubernetes cluster (v1.24+)
-- Helm (v3.0+)
-- kubectl (v1.24+)
-- Access to the cluster with sufficient permissions to create resources
+### Method 1: Helm (Recommended)
 
-### Steps to Deploy
+KubePattern is packaged and distributed as an OCI Helm chart via the GitHub Container Registry (GHCR). This method automatically installs the necessary CRDs, RBAC permissions, and the analyzer CronJob.
 
-[Artifact Hub](https://artifacthub.io/packages/helm/kubepattern/kubepattern-chart).
+1. **Install the chart:**
+   ```bash
+   helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern \
+     --version <VERSION> \
+     --namespace kubepattern-system \
+     --create-namespace
+   ```
 
-To install KubePattern using Helm (Default Values), follow these steps:
+2. **Accessing Private Pattern Registries (Optional):**
+   If your patterns are stored in a private GitHub repository, provide a Personal Access Token (PAT) during installation:
+   ```bash
+   --set patternRegistry.repo.token="<YOUR_GITHUB_TOKEN>"
+   ```
+
+3. **Customize the Schedule:**
+   By default, the analysis runs every hour. You can override the schedule:
+   ```bash
+   --set schedule="*/30 * * * *"
+   ```
+
+### Method 2: Local Container Execution (Without Helm)
+
+If you prefer to run the analyzer locally or in CI/CD pipelines without installing cluster resources, you can execute the container directly. You must mount your local `kubeconfig` to allow the engine to authenticate and query the cluster.
 
 ```bash
-helm install my-kubepattern-chart oci://ghcr.io/kubepattern/kubepattern-chart --version <version>
+docker run -rm --name kubepattern-app \
+  -v ~/.kube/config:/root/.kube/config:ro \
+  -e KUBECONFIG=/root/.kube/config \
+  -e GITHUB_TOKEN="<YOUR_GITHUB_TOKEN>" \
+  ghcr.io/kubepattern/kubepattern-go:latest
 ```
-To install KubePattern with custom values, create a `values.yaml` file with your desired configurations and run:
+*(Note: You can swap `docker` with `podman` depending on your local setup).*
+
+---
+
+## Viewing Results
+
+Once the CronJob completes a run, KubePattern saves the detected architectural issues as `Smell` resources. You can inspect them using standard `kubectl` commands:
 
 ```bash
+# List all detected smells across the cluster
+kubectl get smells -A
 
+# View detailed information about a specific smell
+kubectl describe smell <smell-name> -n <namespace>
 ```
 
-Example `values.yaml`:
+---
 
-```yaml
+## About the Author
 
-
-```
-
-## Take a Look at Pattern as Code Registry
-KubePattern uses an external Pattern Registry to define and manage patterns. You can explore the official registry at [KubePattern Registry](https://github.com/kubepattern/registry) to see available patterns and their definitions.
-
-You can also create your own registry by following the structure and guidelines provided in the official repository.
-
-//structure example
-
-```plaintext
-
-registry-repo-name/
-├── definitions/
-│   ├── pattern-1.json
-│   ├── pattern-2.json
-│   └── ...
-├── doc/
-│   ├── pattern-1-doc.md
-│   ├── pattern-2-doc.md
-│   └── ...
-└── README.md
-
-```
-
-## Write Your Patterns
-You can create custom patterns by defining them in JSON format. Refer to the [Pattern Definition Guide](https://kubepattern.dev/docs/pattern-as-code/pac-api) for detailed instructions on how to write and structure your patterns.
-
-Then push your patterns to your registry repository in `definitions` folder and configure KubePattern to use your custom registry by updating the Helm values accordingly.
-
-## Run Analysis Manually
-You can run KubePattern analysis using the API.
-Refer to the [API Documentation](https://kubepattern.dev/docs/kubepattern-core/api) for detailed instructions on how to trigger analysis and retrieve results programmatically.
-
-### Manual Analysis Warning
-:::warning
-
-It is not reccomended to expose KubePattern API outside your cluster without proper security measures.
-
-Better way to trigger analysis is run a Job and trigger analysis using curl utility inside the cluster. 
-
-:::
-
-### Sheduled Analysis
-
-The Better way is to use the Helm chart with Cronjob enabled to run periodic analysis on your cluster.
+This project was created and is currently maintained by **Gabriele Groppo** ([@GabrieleGroppo](https://github.com/GabrieleGroppo)) as part of a Bachelor's Thesis project.
