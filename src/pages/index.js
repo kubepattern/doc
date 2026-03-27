@@ -101,95 +101,6 @@ function UseCasesSection() {
   );
 }
 
-const FeatureList = [
-  {
-    title: 'Graph-Based Analysis',
-    icon: <i className="fas fa-project-diagram"></i>,
-    description: (
-      <>
-        Builds a complete resource graph to understand relationships and dependencies between Kubernetes resources, enabling deep architectural insights.
-      </>
-    ),
-  },
-  {
-    title: 'Pattern-as-Code',
-    icon: <i className="fas fa-code"></i>,
-    description: (
-      <>
-        Define patterns using Kubernetes Custom Resources. Extend KubePattern with custom patterns without modifying the core codebase.
-      </>
-    ),
-  },
-  {
-    title: 'Custom Relationships',
-    icon: <i className="fas fa-search"></i>,
-    description: (
-      <>
-        Define and detect custom relationships between resources to spot complex architectural issues.
-      </>
-    ),
-  },
-  {
-    title: 'Simple Yet Powerful',
-    icon: <i className="fas fa-chart-line"></i>,
-    description: (
-      <>
-        KubePattern query engine allows you to write simple queries that can detect complex patterns as Custom Resources ready to be applied.
-      </>
-    ),
-  },
-  {
-    title: 'Best Practices',
-    icon: <i className="fas fa-shield-alt"></i>,
-    description: (
-      <>
-        Identify configuration smells and deviations from Kubernetes best practices and corporate policies automatically.
-      </>
-    ),
-  },
-  {
-    title: 'Native CRD Output',
-    icon: <i className="fas fa-fire"></i>,
-    description: (
-      <>
-        Results are exposed as Kubernetes Custom Resources, making them easy to query, monitor, and integrate with existing tools.
-      </>
-    ),
-  },
-];
-
-function Feature({icon, title, description}) {
-  return (
-    <div className={clsx('col col--4', styles.feature)}>
-      <div className={styles.featureCard}>
-        <div className={styles.featureIcon}>{icon}</div>
-        <h3 className={styles.featureTitle}>{title}</h3>
-        <p className={styles.featureDescription}>{description}</p>
-      </div>
-    </div>
-  );
-}
-
-function HomepageFeatures() {
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className={styles.featuresHeader}>
-          <h2 className={styles.sectionTitle}>Why KubePattern?</h2>
-          <p className={styles.sectionSubtitle}>
-            Go beyond traditional linting with pattern-oriented validation
-          </p>
-        </div>
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function CallToAction() {
   return (
     <section className={styles.cta}>
@@ -217,8 +128,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
         {/* UseCasesSection inserita prima di HomepageFeatures */}
-        <UseCasesSection /> 
-        <HomepageFeatures />
+        <UseCasesSection />
         <CallToAction />
       </main>
     </Layout>
