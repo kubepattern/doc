@@ -35,10 +35,7 @@ const config = {
           sidebarPath: './sidebars.js',
           editUrl: 'https://github.com/kubepattern/doc/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/kubepattern/doc/tree/main/',
-        },
+        blog: false,
         pages: {
           // Enable pages for privacy and terms
         },
