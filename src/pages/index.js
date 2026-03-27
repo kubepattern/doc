@@ -25,7 +25,7 @@ function HomepageHeader() {
           </h1>
           <p className={styles.heroSubtitle}>
             Static analysis tool that identifies architectural patterns and configuration smells in your Kubernetes clusters
-          </p>
+          </p>Il suo stato di ricezione cambia
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--primary button--lg', styles.buttonPrimary)}
@@ -229,7 +229,6 @@ export default function Home() {
         {/* UseCasesSection inserita prima di HomepageFeatures */}
         <UseCasesSection /> 
         <HomepageFeatures />
-        <HowItWorks />
         <CallToAction />
       </main>
     </Layout>
