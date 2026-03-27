@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
-id: pac-api
-title: Write Pattern-as-Code
+id: pttern-as-code
+title: Pattern as Code
 slug: /core/pattern-as-code
 ---
 
