@@ -25,7 +25,7 @@ function HomepageHeader() {
           </h1>
           <p className={styles.heroSubtitle}>
             Static analysis tool that identifies architectural patterns and configuration smells in your Kubernetes clusters
-          </p>Il suo stato di ricezione cambia
+          </p>
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--primary button--lg', styles.buttonPrimary)}
