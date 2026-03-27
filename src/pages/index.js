@@ -6,12 +6,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
-// Font Awesome icons (Ho aggiunto icone per gli use cases)
-const RocketIcon = () => <i className="fas fa-rocket"></i>;
-const PlayIcon = () => <i className="fas fa-play-circle"></i>;
-const BookIcon = () => <i className="fas fa-book"></i>;
+// Icone aggiornate
+const HeaderIcon = () => <i className="fas fa-bolt"></i>; // Sostituito il razzo
 const GitHubIcon = () => <i className="fab fa-github"></i>;
-const CheckIcon = () => <i className="fas fa-check-circle"></i>;
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -30,7 +27,7 @@ function HomepageHeader() {
             <Link
               className={clsx('button button--primary button--lg', styles.buttonPrimary)}
               to="/docs/getting-started">
-              <RocketIcon /> Get Started
+              <HeaderIcon /> Get Started
             </Link>
           </div>
         </div>
@@ -39,10 +36,11 @@ function HomepageHeader() {
   );
 }
 
+// Icone delle use case aggiornate
 const UseCaseList = [
   {
     title: 'Configuration Validation',
-    icon: <i className="fas fa-shipping-fast"></i>,
+    icon: <i className="fas fa-shield-check"></i>, // Era fa-shipping-fast
     description: (
       <>
         KubePattern checks for Configuration Issues in your Kubernetes clusters.
@@ -51,7 +49,7 @@ const UseCaseList = [
   },
     {
     title: 'Custom Resources Governance',
-    icon: <i className="fas fa-balance-scale"></i>,
+    icon: <i className="fas fa-network-wired"></i>, // Era fa-balance-scale
     description: (
       <>
         Enhance CRD governance by enforcing complex logical patterns across multiple resources and namespaces.
@@ -60,7 +58,7 @@ const UseCaseList = [
   },
   {
     title: 'Cluster Auditing',
-    icon: <i className="fas fa-stethoscope"></i>,
+    icon: <i className="fas fa-microscope"></i>, // Era fa-stethoscope
     description: (
       <>
         Perform a comprehensive scan of existing clusters to identify technical debt, “smells,” and opportunities for architectural refactoring.
@@ -127,7 +125,6 @@ export default function Home() {
       description="Kubernetes Pattern Recognition Made Simple">
       <HomepageHeader />
       <main>
-        {/* UseCasesSection inserita prima di HomepageFeatures */}
         <UseCasesSection />
         <CallToAction />
       </main>
