@@ -83,19 +83,9 @@ const config = {
             position: 'left',
           },
           {
-            to: '/docs/kubepattern-core/pattern-as-code',
-            label: 'Pattern-as-Code',
+            to: '/docs/core/pattern-as-code',
+            label: 'Pattern as Code',
             position: 'left',
-          },
-          {
-            href: 'https://github.com/kubepattern/registry',
-            label: 'Pattern Registry',
-            position: 'left',
-          },
-          {
-            to: '/blog',
-            label: 'Blog',
-            position: 'left'
           },
           {
             href: 'https://github.com/kubepattern/kubepattern',
