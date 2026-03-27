@@ -118,7 +118,7 @@ const config = {
                 to: '/docs/core/pattern-as-code',
               },
               {
-                label: 'Pattern Catalog',
+                label: 'Pattern Registry',
                 href: 'https://github.com/kubepattern/registry',
               },
             ],
@@ -129,10 +129,6 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/kubepattern/kubepattern',
-              },
-              {
-                label: 'GitHub Issues',
-                href: 'https://github.com/kubepattern/kubepattern/issues',
               },
               {
                 label: 'Contributing',
@@ -147,10 +143,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'Twitter',
                 href: 'https://x.com/GroppoGabr82712',
