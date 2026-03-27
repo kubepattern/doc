@@ -44,15 +44,13 @@ function HomepageHeader() {
   );
 }
 
-// --- NUOVA SEZIONE USE CASES ---
-
 const UseCaseList = [
   {
-    title: 'CI/CD Pipelines',
+    title: 'Configuration Validation',
     icon: <i className="fas fa-shipping-fast"></i>,
     description: (
       <>
-        Integrate KubePattern into your CI/CD pipeline to block misconfigurations and anti-patterns before they reach production.
+        KubePattern checks for Configuration Issues in your Kubernetes clusters.
       </>
     ),
   },
@@ -107,7 +105,6 @@ function UseCasesSection() {
     </section>
   );
 }
-// --- FINE NUOVA SEZIONE ---
 
 const FeatureList = [
   {
@@ -124,25 +121,25 @@ const FeatureList = [
     icon: <i className="fas fa-code"></i>,
     description: (
       <>
-        Define patterns using declarative JSON files. Extend KubePattern with custom patterns without modifying the core codebase.
+        Define patterns using Kubernetes Custom Resources. Extend KubePattern with custom patterns without modifying the core codebase.
       </>
     ),
   },
   {
-    title: 'Pattern Recognition',
+    title: 'Custom Relationships',
     icon: <i className="fas fa-search"></i>,
     description: (
       <>
-        Automatically detect architectural patterns like Sidecar, Health Probe, and Predictable Demands across your entire cluster.
+        Define and detect custom relationships between resources to spot complex architectural issues.
       </>
     ),
   },
   {
-    title: 'Confidence Scoring',
+    title: 'Simple Yet Powerful',
     icon: <i className="fas fa-chart-line"></i>,
     description: (
       <>
-        Each detection includes confidence levels, severity ratings, and detailed scores to help you prioritize improvements.
+        KubePattern query engine allows you to write simple queries that can detect complex patterns as Custom Resources ready to be applied.
       </>
     ),
   },
@@ -198,68 +195,6 @@ function HomepageFeatures() {
   );
 }
 
-function HowItWorks() {
-  return (
-    <section className={styles.howItWorks} id="how-it-works">
-      <div className="container">
-        <div className={styles.codeContainer}>
-          <div className={styles.codeContent}>
-            <h2>Simple Yet Powerful</h2>
-            <p>
-              KubePattern analyzes your cluster and creates K8sPattern CRDs that represent detected patterns with detailed information.
-            </p>
-            <ul className={styles.codeFeatures}>
-              <li><CheckIcon /> Automatic cluster scanning</li>
-              <li><CheckIcon /> RESTful API for integration</li>
-              <li><CheckIcon /> Detailed pattern descriptions</li>
-              <li><CheckIcon /> Resource relationship mapping</li>
-            </ul>
-            <Link
-              className={clsx('button button--primary button--lg', styles.buttonPrimary)}
-              to="/docs/getting-started">
-              <BookIcon /> Read the Docs
-            </Link>
-          </div>
-          <div className={styles.codeBlock}>
-            <pre>
-              <code>
-{`# View detected patterns
-kubectl get k8spatterns -A
-
-# Example output:
-apiVersion: kubepattern.dev/v1
-kind: K8sPattern
-metadata:
-  name: sidecar-2109423650
-  namespace: pattern-analysis-ns
-spec:
-  confidence: HIGH
-  severity: INFO
-  type: STRUCTURAL
-  message: Pod 'frontend' in namespace 'production' 
-    appears to be separated from its sidecar pod 
-    'logging' in namespace 'production'.
-  name: sidecar
-  referenceLink: https://github.com/kubepattern/registry
-  resources:
-  - name: frontend
-    namespace: production
-    role: main-app
-  - name: logging
-    namespace: production
-    role: sidecar
-  scores:
-  - category: Relationship
-    score: 10`}
-              </code>
-            </pre>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function CallToAction() {
   return (
     <section className={styles.cta}>
@@ -272,6 +207,11 @@ function CallToAction() {
           className={clsx('button button--primary button--lg', styles.ctaButton)}
           to="https://github.com/kubepattern/kubepattern">
           <GitHubIcon /> View on GitHub
+        </Link>
+        <Link
+          className={clsx('button button--primary button--lg', styles.buttonPrimary)}
+          to="/docs/getting-started">
+          <BookIcon /> Read the Docs
         </Link>
       </div>
     </section>
