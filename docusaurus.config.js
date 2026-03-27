@@ -83,8 +83,8 @@ const config = {
             position: 'left',
           },
           {
-            to: '/docs/kubepattern-core/api',
-            label: 'API Reference',
+            to: '/docs/kubepattern-core/pattern-as-code',
+            label: 'Pattern-as-Code',
             position: 'left',
           },
           {
