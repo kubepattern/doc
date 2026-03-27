@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
-id: api
-title: API
+id: smells
+title: Smells
 slug: /core/smells
 ---
 

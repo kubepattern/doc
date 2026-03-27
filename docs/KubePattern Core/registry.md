@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-id: pac-registry
+id: registry
 title: The Pattern Registry
 slug: /core/registry
 ---
