@@ -21,7 +21,7 @@ function HomepageHeader() {
             <HeaderIcon /> {siteConfig.title}
           </h1>
           <p className={styles.heroSubtitle}>
-            The open source Architecture Validator made for Kubernetes
+            The open-source <b>Architecture validator</b> made for Kubernetes
           </p>
           <div className={styles.buttons}>
             <Link
@@ -43,7 +43,7 @@ const UseCaseList = [
     icon: <i className="fas fa-shield-check"></i>, // Era fa-shipping-fast
     description: (
       <>
-        KubePattern checks for Configuration Issues in your Kubernetes clusters.
+        Checks for Configuration Issues in your Kubernetes clusters.
       </>
     ),
   },
@@ -86,7 +86,7 @@ function UseCasesSection() {
         <div className={styles.featuresHeader}>
           <h2 className={styles.sectionTitle}>Use Cases</h2>
           <p className={styles.sectionSubtitle}>
-            KubePattern helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability.
+            KubePattern helps you manage <b>Custom Resources</b> interactions in your clusters, ensuring best practices and improving maintainability.
           </p>
         </div>
         <div className="row">
