@@ -66,7 +66,7 @@ KubePattern is developed in **Go** and consists of the following components:
 - **Core Engine**: Responsible for loading patterns, analyzing cluster state, and generating reports
 - **Pattern Registry**: A collection of predefined patterns that can be easily extended
 - **Linter**: An utility to validate pattern definitions for correctness and consistency
-- **Pattern Registry**: KubePattern evaluates the cluster against definitions stored in the **Pattern-as-Code** registry. You can browse the official definitions here: [Pattern as Code Registry](https://github.com/kubepattern/registry).
+- **Pattern Registry**: KubePattern evaluates the cluster against **Pattern as Code** applied. You can browse a list of Patterns here: [Pattern as Code Registry](https://github.com/kubepattern/registry).
 - **CRD Output**: The engine generates and manages `Smell` Custom Resources (`smells.kubepattern.dev`) to persist analysis results directly inside the cluster, natively integrating with Kubernetes RBAC and APIs.
 - **Execution**: Deployed via Helm, it runs as a lightweight `CronJob`, periodically scanning the cluster without consuming idle resources.
 
