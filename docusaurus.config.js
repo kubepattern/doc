@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'KubePattern',
-  tagline: 'Kubernetes Pattern Recognition Made Simple',
+  tagline: 'The Architecture Validator made for Kubernetes',
   favicon: 'img/kubepattern.svg',
 
   future: {

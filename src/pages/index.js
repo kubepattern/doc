@@ -7,7 +7,7 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
 // Icone aggiornate
-const HeaderIcon = () => <i className="fas fa-bolt"></i>; // Sostituito il razzo
+const HeaderIcon = () => <i className="fas fa-bolt"></i>;
 const GitHubIcon = () => <i className="fab fa-github"></i>;
 
 function HomepageHeader() {
@@ -21,7 +21,7 @@ function HomepageHeader() {
             Kubernetes Pattern Recognition Made Simple
           </h1>
           <p className={styles.heroSubtitle}>
-            Static analysis tool that identifies architectural patterns and configuration smells in your Kubernetes clusters
+            An open-source tool that helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability.
           </p>
           <div className={styles.buttons}>
             <Link
@@ -122,7 +122,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Kubernetes Pattern Recognition Made Simple">
+      description="The Architecture Validator made for Kubernetes">
       <HomepageHeader />
       <main>
         <UseCasesSection />
