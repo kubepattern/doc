@@ -52,9 +52,23 @@ const config = {
     ],
   ],
 
+  markdown: {
+    mermaid: true,
+  },
+  
+  themes: ['@docusaurus/theme-mermaid'],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+
+      mermaid: {
+        theme: { 
+          light: 'neutral',
+          dark: 'dark' 
+        },
+      },
+
       image: 'img/kubepattern-social-card.png',
       colorMode: {
         defaultMode: 'dark',
