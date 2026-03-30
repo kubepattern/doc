@@ -39,3 +39,50 @@ The final output of the entire process is a native Kubernetes Custom Resource of
 * **Dynamic Messages:** When drafting the report for the user, the Engine can format the error message by replacing special placeholders (e.g., `{{target.metadata.name}}`) with the actual data of the offending resource, providing clear, context-aware explanations.
 * **State and Idempotency:** Each generated Smell has a deterministic and unique name (formed by combining the Pattern name with the Target's UID). This ensures that repeated analyses over time will update the existing Smell rather than duplicating it.
 * **Saved Details:** The Smell contains essential metadata to facilitate resolution, including the category of the issue, its severity (e.g., *LOW*, *CRITICAL*), and the exact details of the target that caused the violation.
+
+
+# KubePattern Analysis Workflow
+The following diagram illustrates the workflow of the Analysis Engine when processing a Pattern:
+
+```mermaid
+flowchart LR
+    %% Style Definitions (Modern Palette)
+    classDef input fill:#eef2ff,stroke:#6366f1,stroke-width:2px,color:#312e81,rx:10px,ry:10px
+    classDef output fill:#fef2f2,stroke:#ef4444,stroke-width:2px,color:#7f1d1d,rx:10px,ry:10px
+    classDef step fill:#ffffff,stroke:#cbd5e1,stroke-width:2px,color:#0f172a,rx:8px,ry:8px,shadow:true
+    classDef pipeline fill:#f8fafc,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5,rx:15px,ry:15px
+
+    %% Data Sources
+    subgraph ClusterInput [📥 Input Data from Cluster]
+        direction TB
+        LiveRes[(📦 Live Resources\nPods, Services, etc.)]:::input
+        PatReg[(📜 Pattern Registry\nPattern CRDs)]:::input
+    end
+
+    %% Core Engine
+    subgraph Pipeline [🚀 KubePattern Go Engine]
+        direction LR
+        GB[<b>1. Graph Builder</b><br/>Graph Construction]:::step
+        PL[<b>2. Pattern Linter</b><br/>Syntax Validation]:::step
+        AE{<b>3. Analysis Engine</b><br/>Relationship Evaluation}:::step
+        RW[<b>4. Report Writer</b><br/>Report Generation]:::step
+
+        GB -->|Abstract Graph| AE
+        PL -->|Valid Patterns| AE
+        AE -->|Detected Anomalies| RW
+    end
+
+    %% Results
+    subgraph ClusterOutput [📤 Output Data to Cluster]
+        direction TB
+        Smells[(⚠️ Smell CRDs\nNon-compliant Architectures)]:::output
+    end
+
+    %% External Connections
+    LiveRes -. "Fetch API" .-> GB
+    PatReg -. "Read Defs" .-> PL
+    RW -- "Create / Update" --> Smells
+
+    %% Assign class to the central Subgraph
+    class Pipeline pipeline
+```
