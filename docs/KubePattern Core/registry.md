@@ -13,18 +13,12 @@ KubePattern defines patterns as native Kubernetes Custom Resources (`kubepattern
 
 ---
 
-## How KubePattern Uses the Registry
-
-KubePattern interacts with the registry to enforce best practices automatically:
-
-1. **Load Patterns**: KubePattern fetches the `Pattern` YAML manifests from the configured registry URL.
-2. **Scan Cluster**: It analyzes your Kubernetes resources based on the `target` and `dependencies` defined in the patterns.
-3. **Evaluate Relationships**: It applies the filters and relationship criteria to match the cluster state against the pattern definitions.
-4. **Detect & Report**: When a deviation or "Smell" is identified, KubePattern generates reports or triggers alerts based on the defined `severity` and custom `message`.
-
-:::note
-Patterns can be applied directly to the cluster as Custom Resources. Registry helps you manage and version these patterns, but they are not required to be applied from the registry. You can create and apply custom patterns directly in your cluster as well.
-:::
+## How use the registry
+To use the KubePattern registry, you can follow these steps:
+1. **Browse the Registry**: Explore the available patterns in the registry to find ones that are relevant to your architectural needs.
+2. **Select a Pattern**: Choose a pattern that addresses a specific architectural concern or best practice you want to implement.
+3. **Apply the Pattern**: Use the provided YAML manifest to apply the pattern to your Kubernetes cluster. This typically involves using `kubectl apply -f <pattern-file.yaml>`.
+4. **Monitor and Remediate**: Once the pattern is applied, monitor your cluster for any violations of the pattern. If any issues are detected, follow the remediation steps outlined in the pattern's documentation to resolve them.
 
 ---
 
