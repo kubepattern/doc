@@ -18,7 +18,7 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            <HeaderIcon /> {siteConfig.title}
+            The Architecture Validator made for Kubernetes
           </h1>
           <p className={styles.heroSubtitle}>
             An open-source tool that helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability.
