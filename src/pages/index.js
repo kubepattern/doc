@@ -18,10 +18,10 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            The Architecture Validator made for Kubernetes
+            <HeaderIcon /> {siteConfig.title}
           </h1>
           <p className={styles.heroSubtitle}>
-            An open-source tool that helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability.
+            The open source Architecture Validator made for Kubernetes
           </p>
           <div className={styles.buttons}>
             <Link
@@ -86,7 +86,7 @@ function UseCasesSection() {
         <div className={styles.featuresHeader}>
           <h2 className={styles.sectionTitle}>Use Cases</h2>
           <p className={styles.sectionSubtitle}>
-            Dove KubePattern fa la differenza
+            KubePattern helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability.
           </p>
         </div>
         <div className="row">
