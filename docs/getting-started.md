@@ -15,40 +15,22 @@ Welcome to KubePattern! This guide will help you get up and running with KubePat
 
 KubePattern is packaged and distributed as an OCI Helm chart via the GitHub Container Registry (GHCR). This method automatically installs the necessary CRDs, RBAC permissions, and the analyzer CronJob.
 
-1. **Install the chart:**
-   ```bash
-   helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern \
-     --version <VERSION> \
-     --namespace kubepattern-system \
-     --create-namespace
-   ```
+To **install KubePattern using Helm**, run the following command:
 
-2. **Accessing Private Pattern Registries (Optional):**
-   If your patterns are stored in a private GitHub repository, provide a Personal Access Token (PAT) during installation:
-   ```bash
-   --set patternRegistry.repo.token="<YOUR_GITHUB_TOKEN>"
-   ```
+```bash
+helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern \
+   --version <VERSION> \
+   --namespace kubepattern-system \
+   --create-namespace \
+   --set image.tag=<VERSION>
+```
 
-3. **Customize the Schedule:**
+:::info **Customize the Schedule:**
    By default, the analysis runs every hour. You can override the schedule:
    ```bash
    --set schedule="*/30 * * * *"
    ```
-
-### Method 2: Local Container Execution (Without Helm)
-
-If you prefer to run the analyzer locally or in CI/CD pipelines without installing cluster resources, you can execute the container directly. You must mount your local `kubeconfig` to allow the engine to authenticate and query the cluster.
-
-```bash
-docker run -rm --name kubepattern-app \
-  -v ~/.kube/config:/root/.kube/config:ro \
-  -e KUBECONFIG=/root/.kube/config \
-  -e GITHUB_TOKEN="<YOUR_GITHUB_TOKEN>" \
-  ghcr.io/kubepattern/kubepattern-go:latest
-```
-*(Note: You can swap `docker` with `podman` depending on your local setup).*
-
----
+:::
 
 ## Viewing Results
 
