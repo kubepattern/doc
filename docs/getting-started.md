@@ -32,6 +32,20 @@ helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern 
    ```
 :::
 
+## Writing Custom Patterns
+KubePattern allows you to define custom patterns to detect specific architectural issues in your Kubernetes cluster. To create a new pattern, you can write a YAML manifest that defines the pattern's name, description, and the logic for detecting the issue.
+
+Here is the guide to write a custom pattern: [API Reference](./core/pattern-as-code).
+
+Further examples of custom patterns can be found in the [KubePattern Registry](https://github.com/kubepattern/registry).
+
+## Applying Custom Patterns
+Once you have defined your custom pattern in a YAML file, you can apply it to your cluster using `kubectl`:
+
+```bash
+kubectl apply -f my-custom-pattern.yaml
+```
+
 ## Viewing Results
 
 Once the CronJob completes a run, KubePattern saves the detected architectural issues as `Smell` resources. You can inspect them using standard `kubectl` commands:
