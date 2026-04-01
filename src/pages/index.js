@@ -17,8 +17,9 @@ function HomepageHeader() {
       <div className={styles.heroBackground}></div>
       <div className="container">
         <div className={styles.heroContent}>
+          <img src="/img/kubepattern.svg" alt="KubePattern Logo" className={styles.heroLogo} />
           <h1 className={styles.heroTitle}>
-            <HeaderIcon /> {siteConfig.title}
+            {siteConfig.title}
           </h1>
           <p className={styles.heroSubtitle}>
             The open-source <b>Architecture validator</b> made for Kubernetes
