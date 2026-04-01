@@ -35,17 +35,17 @@ kubectl get smells -n pattern-analysis-ns --field-selector spec.severity=CRITICA
 
 Analysis results are stored as Kubernetes Custom Resources:
 
-| Property | Type | Description |
-| :--- | :--- | :--- | :--- |
-| `apiVersion` | string | API version of the Smell CRD (e.g., `kubepattern.dev/v1`) |
-| `kind` | string | Always `Smell` |
-| `metadata` | object | Standard Kubernetes metadata (name, namespace, labels, annotations) |
-| `spec` | object | Core specification of the smell, containing detection logic and relationships |
+| Property | Description |
+| :--- | :--- |
+| `apiVersion` | API version of the Smell CRD (e.g., `kubepattern.dev/v1`) |
+| `kind` | Always `Smell` |
+| `metadata` | Standard Kubernetes metadata (name, namespace, labels, annotations) |
+| `spec` | Core specification of the smell, containing detection logic and relationships |
 | `spec.suppress` | boolean | Indicates whether the smell is suppressed |
-| `spec.target` | object | Details about the target resource that triggered the smell (apiVersion, kind, name, namespace, uid) |
-| `spec.pattern` | object | Information about the pattern that generated the smell (name, version) |
-| `spec.reference` | string | Link to documentation for the smell and its remediation |
-| `spec.message` | string | Custom message describing the smell |
-| `spec.severity` | string | Severity level of the smell (LOW, MEDIUM, HIGH, CRITICAL) |
-| `spec.category` | string | Category of the smell (e.g., Security, Performance, Maintainability) |
-| `spec.name` | string | Name of the smell (e.g., "Exposed Service") |
+| `spec.target` | Details about the target resource that triggered the smell (apiVersion, kind, name, namespace, uid) |
+| `spec.pattern` | Information about the pattern that generated the smell (name, version) |
+| `spec.reference` | Link to documentation for the smell and its remediation |
+| `spec.message` | Custom message describing the smell |
+| `spec.severity` | Severity level of the smell (LOW, MEDIUM, HIGH, CRITICAL) |
+| `spec.category` | Category of the smell (e.g., Security, Performance, Maintainability) |
+| `spec.name` |  Name of the smell (e.g., "Exposed Service") |
