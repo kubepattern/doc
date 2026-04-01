@@ -35,109 +35,17 @@ kubectl get smells -n pattern-analysis-ns --field-selector spec.severity=CRITICA
 
 Analysis results are stored as Kubernetes Custom Resources:
 
-```yaml
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  name: smells.kubepattern.dev
-spec:
-  group: kubepattern.dev
-  names:
-    plural: smells
-    singular: smell
-    kind: Smell
-    shortNames:
-      - smell
-  scope: Namespaced
-  versions:
-    - name: v1
-      served: true
-      storage: true
-      additionalPrinterColumns:
-        - name: Category
-          type: string
-          description: "Smell category"
-          jsonPath: .spec.category
-        - name: Severity
-          type: string
-          description: "Smell severity"
-          jsonPath: .spec.severity
-        - name: Target Kind
-          type: string
-          description: "Kind of the target resource"
-          jsonPath: .spec.target.kind
-        - name: Target Name
-          type: string
-          description: "Name of the target resource"
-          jsonPath: .spec.target.name
-        - name: Suppressed
-          type: boolean
-          description: "Is the smell suppressed"
-          jsonPath: .spec.suppress
-      schema:
-        openAPIV3Schema:
-          type: object
-          properties:
-            spec:
-              type: object
-              required:
-                - name
-                - category
-              properties:
-                name:
-                  type: string
-                  description: "Smell name"
-                category:
-                  type: string
-                  description: "Smell category (e.g., Security, Performance, Maintainability)."
-                reference:
-                  type: string
-                  description: "Link to Smell docs and remediation Pattern."
-                pattern:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                      description: "Pattern name that generated this smell."
-                    version:
-                      type: string
-                      description: "Pattern version."
-                message:
-                  type: string
-                  description: "Smell warning."
-                severity:
-                  type: string
-                  description: "Smell severity (LOW, MEDIUM, HIGH, CRITICAL)."
-                  enum:
-                    - LOW
-                    - MEDIUM
-                    - HIGH
-                    - CRITICAL
-                suppress:
-                  type: boolean
-                  description: "Resource to suppress (false positives)"
-                target:
-                  type: object
-                  required:
-                    - apiVersion
-                    - kind
-                    - uid
-                    - name
-                  properties:
-                    apiVersion:
-                      type: string
-                      description: "Kubernetes resource API version."
-                    kind:
-                      type: string
-                      description: "Kubernetes resource kind."
-                    name:
-                      type: string
-                      description: "Kubernetes resource name."
-                    namespace:
-                      type: string
-                      description: "Kubernetes resource namespace."
-                    uid:
-                      type: string
-                      description: "Kubernetes resource UID."
-
-```
+| Property | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `apiVersion` | string | API version of the Smell CRD (e.g., `kubepattern.dev/v1`) |
+| `kind` | string | Always `Smell` |
+| `metadata` | object | Standard Kubernetes metadata (name, namespace, labels, annotations) |
+| `spec` | object | Core specification of the smell, containing detection logic and relationships |
+| `spec.suppress` | boolean | Indicates whether the smell is suppressed |
+| `spec.target` | object | Details about the target resource that triggered the smell (apiVersion, kind, name, namespace, uid) |
+| `spec.pattern` | object | Information about the pattern that generated the smell (name, version) |
+| `spec.reference` | string | Link to documentation for the smell and its remediation |
+| `spec.message` | string | Custom message describing the smell |
+| `spec.severity` | string | Severity level of the smell (LOW, MEDIUM, HIGH, CRITICAL) |
+| `spec.category` | string | Category of the smell (e.g., Security, Performance, Maintainability) |
+| `spec.name` | string | Name of the smell (e.g., "Exposed Service") |

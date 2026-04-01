@@ -118,34 +118,6 @@ Current Pattern as Code api version: `v1`
 | :--- | :--- |
 | `EQUALS` | Checks if the value at `targetPath` is equal to the value at `dependencyPath` |
 
-# Custom Resource Definition for Pattern-as-Code
-```yaml
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  name: patterns.kubepattern.dev
-spec:
-  group: kubepattern.dev
-  names:
-    plural: patterns
-    singular: pattern
-    kind: Pattern
-    shortNames:
-      - pat
-  scope: Cluster
-  versions:
-    - name: v1
-      served: true
-      storage: true
-      schema:
-        openAPIV3Schema:
-          type: object
-          properties:
-            spec:
-              type: object
-              x-kubernetes-preserve-unknown-fields: true
-```
-
 # Example Pattern-as-Code Definition
 
 ```yaml
