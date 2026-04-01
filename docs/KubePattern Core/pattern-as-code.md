@@ -90,7 +90,7 @@ Current Pattern as Code api version: `v1`
 | Property | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `with` | string | Yes | Identifier of the dependency to evaluate the relationship against (e.g., `database`) |
-| `type` | enum | Yes | Type of relationship to evaluate: `custom`, `owns`, `ownedBy`, `selects`, `selectedBy` |
+| `type` | enum | Yes | Type of relationship to evaluate: `custom`, `owns`, `ownedBy` |
 | `criteria` | array | No | List of criteria to evaluate the relationship (custom logic based on resource fields) |
 
 ### `relationships.matchAll/matchAny/matchNone.criteria` (if `type` is `custom`)
