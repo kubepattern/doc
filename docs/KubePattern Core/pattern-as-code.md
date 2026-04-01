@@ -42,6 +42,7 @@ Current Pattern as Code api version: `v1`
 | `severity` | enum | Yes | Severity level: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL` |
 | `category` | string | No | Custom category for organizational purposes (e.g., `architecture`, `security`, `cost`) |
 | `message` | string | No | Custom message template for detected Smells (supports placeholders) |
+| reference` | string | No | URL to documentation or remediation guide for the detected Smell |
 | `target` | object | Yes | Definition of the primary resource to analyze |
 | `dependencies` | array | No | List of additional resources that interact with the target |
 | `relationships` | object | No | Definition of relationships between the target and dependent resources |
@@ -52,6 +53,7 @@ Current Pattern as Code api version: `v1`
 | :--- | :--- | :--- | :--- |
 | `kind` | string | Yes | Kubernetes resource kind (e.g., `Pod`, `Deployment`) |
 | `apiVersion` | string | Yes | API version of the resource (e.g., `apps/v1`) |
+| `plural` | string | Yes | Plural name of the resource (e.g., `pods`, `deployments`) |
 | `filters` | object | No | Criteria to narrow down the target resources (e.g., namespace, labels) |
 
 ### `dependencies`
@@ -60,6 +62,8 @@ Current Pattern as Code api version: `v1`
 | `id` | string | Yes | Unique identifier for the dependency (e.g., `database`) |
 | `kind` | string | Yes | Kubernetes resource kind of the dependency (e.g., `Service`) |
 | `apiVersion` | string | Yes | API version of the dependency resource (e.g., `v1`) |
+| `plural` | string | Yes | Plural name of the dependency resource (e.g., `services`) |
+| `filters` | object | No | Criteria to narrow down the dependency resources (e.g., namespace, labels) |
 
 ### `target/dependencies.filters`
 | Property | Type | Required | Description |
@@ -133,6 +137,7 @@ spec:
   target:
     kind: Page
     apiVersion: widgets.templates.krateo.io/v1beta1
+    plural: pages
     filters:
       matchNone:
         - path: "metadata.namespace"
@@ -144,6 +149,7 @@ spec:
     - id: navmenuitem
       kind: NavMenuItem
       apiVersion: widgets.templates.krateo.io/v1beta1
+      plural: navmenuitems
 
   relationships:
     matchNone:
@@ -170,6 +176,7 @@ spec:
   target:
     kind: Paragraph
     apiVersion: widgets.templates.krateo.io/v1beta1
+    plural: paragraphs
     filters:
       matchNone:
         - path: "metadata.namespace"
@@ -181,13 +188,16 @@ spec:
     - id: panel
       kind: Panel
       apiVersion: widgets.templates.krateo.io/v1beta1
+      plural: panels
     - id: column
       kind: Column
       apiVersion: widgets.templates.krateo.io/v1beta1
+      plural: columns
     - id: row
       kind: Row
       apiVersion: widgets.templates.krateo.io/v1beta1
-      
+      plural: rows
+
   relationships:
     matchNone:
       - with: panel
