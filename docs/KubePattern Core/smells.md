@@ -54,6 +54,6 @@ Analysis results are stored as Kubernetes Custom Resources:
 | `spec.name` |  Name of the smell (e.g., "Exposed Service") |
 
 
-::: tip
+:::important
 If `metadata.labels.lastScan` is missing or is out of date, it means the smell has been detected in a previous scan and has not been updated in the current scan. This could indicate that the smell is no longer relevant (e.g., the underlying issue has been resolved) or that it is an old finding that needs to be reviewed. KubePattern automatically removes smells that are no longer relevant.
 :::
