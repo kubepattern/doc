@@ -16,12 +16,10 @@ This roadmap represents my current vision and priorities. It is not a delivery p
 
 ## 🚀 Now (In Progress)
 *The features I am currently working on, which will be released in the next few weeks.*
-- [ ] **Ownership and LabelSelector Relationships support**: Enhance pattern definitions to allow specifying ownership and label selector relationships between resources, enabling more complex and accurate pattern detection.
+- [ ] **Refactoring and Performance Improvements**: Continue optimizing the codebase for better performance and maintainability, ensuring that KubePattern runs efficiently even in large clusters.
 ## 🎯 Next (Planned)
 *The features I am planning to work on after the current ones are completed.*
-- [ ] **Lazy Fetching**: Optimize performance by only fetching resources that are relevant to the patterns being analyzed.
-- [ ] **Analysis General Report**: Introduce a report containing all the detected smells in a single place, with filtering and sorting capabilities.
-- [ ] **Auto Remove Smells**: Implement a mechanism to automatically remove smells that are no longer relevant, such as those that have been resolved or are outdated.
+- [ ] **Relationships Label Selector**: Enhance pattern definitions to allow specifying label selectors for relationships between resources, enabling more flexible and powerful pattern detection.
 ## 🤔 Later (Considering)
 *The features I am considering for future development, but have not yet committed to.*
 - [ ] **AI-Powered Pattern Creation**: Explore the use of AI to assist users in creating new patterns based on common architectural issues and best practices.
@@ -33,3 +31,6 @@ This roadmap represents my current vision and priorities. It is not a delivery p
 *The big features recentely launched 🚀*
 - [x] **Initial Release**: Launched the first version of KubePattern, introducing the core concept of Pattern-as-Code and providing a set of predefined patterns for detecting architectural issues in Kubernetes clusters.
 - [x] **Moved from KubePattern Java to Go**: Rewrote the entire codebase from Java to Go, improving performance, reducing resource consumption, and enhancing the overall user experience.
+- [x] **Ownership Relationships support**: Enhance pattern definitions to allow specifying ownership and label selector relationships between resources, enabling more complex and accurate pattern detection.
+- [x] **Lazy Fetching**: Optimize performance by only fetching resources that are relevant to the patterns being analyzed.
+- [x] **Auto Remove Smells**: Implement a mechanism to automatically remove smells that are no longer relevant, such as those that have been resolved or are outdated.

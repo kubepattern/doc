@@ -40,6 +40,9 @@ Analysis results are stored as Kubernetes Custom Resources:
 | `apiVersion` | API version of the Smell CRD (e.g., `kubepattern.dev/v1`) |
 | `kind` | Always `Smell` |
 | `metadata` | Standard Kubernetes metadata (name, namespace, labels, annotations) |
+| `metadata.name` | Unique name of the smell, typically generated based on the pattern and target resource |
+| `metadata.namespace` | Namespace where the smell is stored, usually the same as the target resource's namespace |
+| `metadata.labels.lastScan` | UUID of the last scan during which the smell was detected (e.g., `lastScan: abc123`) |
 | `spec` | Core specification of the smell, containing detection logic and relationships |
 | `spec.suppress` | boolean | Indicates whether the smell is suppressed |
 | `spec.target` | Details about the target resource that triggered the smell (apiVersion, kind, name, namespace, uid) |
@@ -49,3 +52,8 @@ Analysis results are stored as Kubernetes Custom Resources:
 | `spec.severity` | Severity level of the smell (LOW, MEDIUM, HIGH, CRITICAL) |
 | `spec.category` | Category of the smell (e.g., Security, Performance, Maintainability) |
 | `spec.name` |  Name of the smell (e.g., "Exposed Service") |
+
+
+::: tip
+If `metadata.labels.lastScan` is missing or is out of date, it means the smell has been detected in a previous scan and has not been updated in the current scan. This could indicate that the smell is no longer relevant (e.g., the underlying issue has been resolved) or that it is an old finding that needs to be reviewed. KubePattern automatically removes smells that are no longer relevant.
+:::
