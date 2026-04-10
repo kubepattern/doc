@@ -1,9 +1,3 @@
----
-sidebar_position: 5
-id: contributing
-title: Contributions
-slug: /contributing
----
 # Contributions
 
 As an open-source project, we thrive on community support, and every contribution, big or small, is highly valued. Whether you're a developer, a Kubernetes architect, or just a documentation enthusiast, there are many ways to get involved.

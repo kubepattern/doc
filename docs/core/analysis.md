@@ -1,12 +1,4 @@
----
-sidebar_position: 1
-id: analysis
-title: Analysis
-slug: /core/analysis
----
-
-# Analysis Engine
-
+# Analysis
 The **Analysis Engine** is the core component of KubePattern responsible for executing the logic defined in the Patterns and generating actionable insights (Smells) based on the state of the Kubernetes cluster.
 
 For every Pattern loaded into the system, the engine executes a well-defined pipeline:
@@ -15,8 +7,6 @@ For every Pattern loaded into the system, the engine executes a well-defined pip
 2. **Applying Filters:** The raw candidates are parsed to extract only the resources that meet specific conditions (the filters defined in the pattern). For example, if a pattern is only valid for Pods with certain labels, other Pods will be ignored.
 3. **Relationship Evaluation:** For each Target that survives the filtering stage, the engine evaluates the required relationships against the candidate Dependencies.
 4. **Results Generation:** If the relationships described by the Pattern are *not* satisfied for a given Target, it means an architectural violation has been detected. The engine then creates a report (a "Smell") and writes it to the cluster.
-
----
 
 ## Fetching Data from the Cluster
 To perform its analysis, the engine needs to retrieve data from the Kubernetes cluster. This is done through the Kubernetes API, using the client-go library. The engine fetches all relevant resources (e.g., Pods, Services, Deployments) and constructs an internal graph representation of the cluster's state. This graph allows the engine to efficiently navigate and query relationships between resources during the analysis process.
@@ -41,50 +31,8 @@ After identifying Targets and Dependencies, KubePattern must verify how these re
 * Similar to filters, relationships also rely on the `matchAll`, `matchAny`, and `matchNone` constructs.
 * A relationship is considered satisfied if the logic holds true for the Target against *at least one* of the resources that are part of the required dependencies.
 * **Relationship Types:** KubePattern handles both "Custom Relationships"—where the user defines equality or intersection criteria by comparing a Target field with a Dependency field—and native Kubernetes concepts like ownership (`owns`/`ownedBy`) or label selection (`selects`/`selectedBy`).
-
 ### 3. Generation and Output (Smell)
 The final output of the entire process is a native Kubernetes Custom Resource of type `Smell`.
-* **Dynamic Messages:** When drafting the report for the user, the Engine can format the error message by replacing special placeholders (e.g., `{{target.metadata.name}}`) with the actual data of the offending resource, providing clear, context-aware explanations.
+* **Dynamic Messages:** When drafting the report for the user, the Engine can format the error message by replacing special placeholders with the actual data of the offending resource, providing clear, context-aware explanations.
 * **State and Idempotency:** Each generated Smell has a deterministic and unique name (formed by combining the Pattern name with the Target's UID). This ensures that repeated analyses over time will update the existing Smell rather than duplicating it.
 * **Saved Details:** The Smell contains essential metadata to facilitate resolution, including the category of the issue, its severity (e.g., *LOW*, *CRITICAL*), and the exact details of the target that caused the violation.
-
-
-# KubePattern Analysis Workflow
-The following diagram illustrates the workflow of the Analysis Engine when processing a Pattern:
-
-```mermaid
-flowchart LR
-    %% Data Sources
-    subgraph ClusterInput [📥 Input Data from Cluster]
-        direction TB
-        LiveRes[(📦 Live Resources\nPods, Services, etc.)]:::input
-        PatReg[(📜 Pattern Registry\nPattern CRDs)]:::input
-    end
-
-    %% Core Engine
-    subgraph Pipeline [🚀 KubePattern Go Engine]
-        direction LR
-        GB[<b>1. Graph Builder</b><br/>Graph Construction]:::step
-        PL[<b>2. Pattern Linter</b><br/>Syntax Validation]:::step
-        AE{<b>3. Analysis Engine</b><br/>Relationship Evaluation}:::step
-        RW[<b>4. Report Writer</b><br/>Report Generation]:::step
-
-        GB -->|Abstract Graph| AE
-        PL -->|Valid Patterns| AE
-        AE -->|Detected Anomalies| RW
-    end
-
-    %% Results
-    subgraph ClusterOutput [📤 Output Data to Cluster]
-        direction TB
-        Smells[(⚠️ Smell CRDs\nNon-compliant Architectures)]:::output
-    end
-
-    %% External Connections
-    LiveRes -. "Fetch API" .-> GB
-    PatReg -. "Read Defs" .-> PL
-    RW -- "Create / Update" --> Smells
-
-    %% Assign class to the central Subgraph
-    class Pipeline pipeline
-```

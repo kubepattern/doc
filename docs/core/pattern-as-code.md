@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-id: pttern-as-code
-title: Pattern as Code
-slug: /core/pattern-as-code
----
-
 # KubePattern Pattern as Code
 
 ## What is Pattern-as-Code?
@@ -17,7 +10,7 @@ slug: /core/pattern-as-code
 
 The **API** allows you to write **rules** to identify **Smells** and their remediation strategies within the Kubernetes Cluster.
 
-:::important
+::: info
 
 Write Patterns as rules that bad resources must violate in order to be detected. In other words, the Pattern should describe the conditions that make a resource non-compliant with the desired architecture, not the conditions that make it compliant.
 

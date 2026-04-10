@@ -1,9 +1,3 @@
----
-sidebar_position: 2
-id: getting-started
-title: Getting Started
-slug: /getting-started
----
 # Getting started
 Welcome to KubePattern! This guide will help you get up and running with KubePattern in no time. Whether you're a Kubernetes novice or an experienced operator, this guide will walk you through the essential steps to start using KubePattern effectively.
 
@@ -25,7 +19,7 @@ helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern 
    --set image.tag=<VERSION>
 ```
 
-:::info **Customize the Schedule:**
+::: info **Customize the Schedule:**
    By default, the analysis runs every hour. You can override the schedule:
    ```bash
    --set schedule="*/30 * * * *"
@@ -35,7 +29,7 @@ helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern 
 ## Writing Custom Patterns
 KubePattern allows you to define custom patterns to detect specific architectural issues in your Kubernetes cluster. To create a new pattern, you can write a YAML manifest that defines the pattern's name, description, and the logic for detecting the issue.
 
-Here is the guide to write a custom pattern: [API Reference](../core/pattern-as-code).
+Here is the guide to write a custom pattern: [API Reference](/docs/core/pattern-as-code).
 
 Further examples of custom patterns can be found in the [KubePattern Registry](https://github.com/kubepattern/registry).
 

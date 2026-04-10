@@ -1,4 +1,4 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Deploy VitePress to GitHub Pages
 
 on:
   push:
@@ -30,16 +30,22 @@ jobs:
           node-version: 20
           cache: npm
 
+      # Configura le variabili d'ambiente per GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Docusaurus
-        run: npm run build
+      # Usa lo script definito nel tuo package.json
+      - name: Build VitePress
+        run: npm run docs:build
 
+      # Carica l'output di VitePress (di default si trova in .vitepress/dist)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: .vitepress/dist # Cambia in docs/.vitepress/dist se hai configurato la cartella docs come root di Vitepress
 
   deploy:
     environment:

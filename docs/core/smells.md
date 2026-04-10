@@ -1,10 +1,3 @@
----
-sidebar_position: 4
-id: smells
-title: Smells
-slug: /core/smells
----
-
 # KubePattern Smells
 
 The KubePattern analysis results are represented as **Smells**, which are structured findings that indicate potential issues, anti-patterns, or areas for improvement in your Kubernetes manifests. Each Smell is associated with a specific pattern from the [Pattern Registry](https://github.com/kubepattern/registry).
@@ -54,6 +47,6 @@ Analysis results are stored as Kubernetes Custom Resources:
 | `spec.name` |  Name of the smell (e.g., "Exposed Service") |
 
 
-:::important
+::: info
 If `metadata.labels.lastScan` is missing or is out of date, it means the smell has been detected in a previous scan and has not been updated in the current scan. This could indicate that the smell is no longer relevant (e.g., the underlying issue has been resolved) or that it is an old finding that needs to be reviewed. KubePattern automatically removes smells that are no longer relevant.
 :::

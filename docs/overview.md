@@ -3,6 +3,7 @@ sidebar_position: 1
 title: Overview
 slug: /
 ---
+
 # Overview
 
 ## What is KubePattern?
@@ -21,7 +22,7 @@ How KubePattern works
 2. **Detect**: Identifies smells based on the defined patterns
 3. **Suggest**: Recommends appropriate patterns based on best practices
 
-:::important
+::: info
 
 Unlike traditional linters that only verify field presence, KubePattern identifies complex patterns and relationships between resources, providing contextual suggestions with reference documentation.
 
