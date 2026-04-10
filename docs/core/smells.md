@@ -22,8 +22,6 @@ kubectl get smells <smell-name> -n <namespace> -o yaml
 kubectl get smells -n pattern-analysis-ns --field-selector spec.severity=CRITICAL
 ```
 
----
-
 ## KubePattern Smell Custom Resource Definition
 
 Analysis results are stored as Kubernetes Custom Resources:

@@ -3,9 +3,9 @@ layout: home
 
 hero:
   name: "KubePattern"
-  text: "The Architecture Validator"
-  tagline: "The open-source Architecture validator made for Kubernetes"
-  detailss: "KubePattern helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability."
+  text: "The Architecture Validator for K8s"
+  tagline: "An open-source framework made for Kubernetes."
+  details: "KubePattern helps you manage Custom Resources interactions in your Kubernetes cluster, ensuring best practices and improving maintainability."
   image:
     src: /img/kubepattern.svg
     alt: KubePattern Logo
@@ -19,7 +19,7 @@ hero:
 
 features:
   - title: Configuration Validation
-    details: Checks for Configuration Issues in your Kubernetes clusters.
+    details: Checks for Configuration Issues in your Kubernetes cluster.
     icon:
       src: /img/check.png
       alt: Check Icon

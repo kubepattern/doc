@@ -1,8 +1,6 @@
 # Getting started
 Welcome to KubePattern! This guide will help you get up and running with KubePattern in no time. Whether you're a Kubernetes novice or an experienced operator, this guide will walk you through the essential steps to start using KubePattern effectively.
 
----
-
 ## Installation
 
 ### Method 1: Helm (Recommended)
@@ -51,8 +49,6 @@ kubectl get smells -A
 # View detailed information about a specific smell
 kubectl describe smell <smell-name> -n <namespace>
 ```
-
----
 
 ## About the Author
 

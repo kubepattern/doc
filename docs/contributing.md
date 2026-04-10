@@ -2,8 +2,6 @@
 
 As an open-source project, we thrive on community support, and every contribution, big or small, is highly valued. Whether you're a developer, a Kubernetes architect, or just a documentation enthusiast, there are many ways to get involved.
 
----
-
 ### How You Can Help ❤️
 
 Here are some of the best ways to contribute:
@@ -13,4 +11,3 @@ Here are some of the best ways to contribute:
 * **Suggest Enhancements:** Have an idea for a new feature or an improvement to an existing one? We'd love to hear it.
 * **Improve Documentation:** Good documentation is key. If you find a typo, think a section is unclear, or want to add a new tutorial, you can submit a pull request to our documentation.
 * **Contribute to the Core:** If you're comfortable with Go, you can help improve the KubePattern core. This could mean fixing bugs, optimizing the analysis engine, or helping build new features.
----
