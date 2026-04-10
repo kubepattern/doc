@@ -6,7 +6,26 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
-    ['link', { rel: 'icon', href: '/img/kubepattern.svg' }]
+    // 1. Favicon
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/img/kubepattern.svg' }],
+
+    // 2. Colore del tema per i browser mobile (puoi cambiarlo col tuo brand color)
+    ['meta', { name: 'theme-color', content: '#326CE5' }],
+
+    // 3. Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'KubePattern | The Architecture Validator' }],
+    ['meta', { property: 'og:description', content: 'KubePattern helps you manage Custom Resources interactions in your clusters, ensuring best practices and improving maintainability.' }],
+    ['meta', { property: 'og:url', content: 'https://kubepattern.dev/' }],
+    // Nota per og:image: I social preferiscono immagini PNG/JPG 1200x630px. 
+    // Se hai un banner, inseriscilo in public/img/ e aggiorna questo link!
+    ['meta', { property: 'og:image', content: 'https://kubepattern.dev/img/kubepattern.svg' }],
+
+    // 4. Twitter Cards
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:title', content: 'KubePattern | The Architecture Validator' }],
+    ['meta', { name: 'twitter:description', content: 'The open-source Architecture validator made for Kubernetes.' }],
+    ['meta', { name: 'twitter:image', content: 'https://kubepattern.dev/img/kubepattern.svg' }]
   ],
 
   sitemap: {
