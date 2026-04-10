@@ -18,6 +18,14 @@ For every Pattern loaded into the system, the engine executes a well-defined pip
 
 ---
 
+## Fetching Data from the Cluster
+To perform its analysis, the engine needs to retrieve data from the Kubernetes cluster. This is done through the Kubernetes API, using the client-go library. The engine fetches all relevant resources (e.g., Pods, Services, Deployments) and constructs an internal graph representation of the cluster's state. This graph allows the engine to efficiently navigate and query relationships between resources during the analysis process.
+
+- **Lazy Fetching**: The engine implement lazy fetching strategies to optimize performance, only retrieving resources when necessary for the analysis.
+- **Caching**: The engine caches retrieved resources during the analysis process, ensuring that repeated access to the same resource does not result in multiple API calls.
+- **Error Handling**: The engine includes robust error handling mechanisms to manage API errors, timeouts, and other issues (e.g., rbac issues).
+- **Inheritance Fetching 🔥**: The engine rebuilds the inheritance tree of resources, fetching all relevant parent and child resources as needed.
+
 ## Core Components of the Engine
 
 To perform its job efficiently, the Analysis Engine is divided into three main logical components.
@@ -46,12 +54,6 @@ The following diagram illustrates the workflow of the Analysis Engine when proce
 
 ```mermaid
 flowchart LR
-    %% Style Definitions (Modern Palette)
-    classDef input fill:#eef2ff,stroke:#6366f1,stroke-width:2px,color:#312e81,rx:10px,ry:10px
-    classDef output fill:#fef2f2,stroke:#ef4444,stroke-width:2px,color:#7f1d1d,rx:10px,ry:10px
-    classDef step fill:#ffffff,stroke:#cbd5e1,stroke-width:2px,color:#0f172a,rx:8px,ry:8px,shadow:true
-    classDef pipeline fill:#f8fafc,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5,rx:15px,ry:15px
-
     %% Data Sources
     subgraph ClusterInput [📥 Input Data from Cluster]
         direction TB

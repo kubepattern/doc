@@ -6,17 +6,22 @@ slug: /core/pattern-as-code
 ---
 
 # KubePattern Pattern as Code
+
 ## What is Pattern-as-Code?
 
 **Pattern-as-Code (PaC)** is a Kubernetes Custom Resource Definition (CRD) that allows you to define metrics and **patterns** to recognize Kubernetes resources that deviate from architectural principles and best practices. They also are comprehensive of a remediation reverence documentation and a severity level to prioritize the most critical issues.
 
-# API Documentation
+---
+
+# API Documentation `v1`
 
 The **API** allows you to write **rules** to identify **Smells** and their remediation strategies within the Kubernetes Cluster.
 
-## API version 
+:::important
 
-Current Pattern as Code api version: `v1`
+Write Patterns as rules that bad resources must violate in order to be detected. In other words, the Pattern should describe the conditions that make a resource non-compliant with the desired architecture, not the conditions that make it compliant.
+
+:::
 
 ## Pattern Definition Structure
 
@@ -42,7 +47,7 @@ Current Pattern as Code api version: `v1`
 | `severity` | enum | Yes | Severity level: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL` |
 | `category` | string | No | Custom category for organizational purposes (e.g., `architecture`, `security`, `cost`) |
 | `message` | string | No | Custom message template for detected Smells (supports placeholders) |
-| reference` | string | No | URL to documentation or remediation guide for the detected Smell |
+| `reference` | string | No | URL to documentation or remediation guide for the detected Smell |
 | `target` | object | Yes | Definition of the primary resource to analyze |
 | `dependencies` | array | No | List of additional resources that interact with the target |
 | `relationships` | object | No | Definition of relationships between the target and dependent resources |
@@ -121,6 +126,8 @@ Current Pattern as Code api version: `v1`
 | Operator | Description |
 | :--- | :--- |
 | `EQUALS` | Checks if the value at `targetPath` is equal to the value at `dependencyPath` |
+
+---
 
 # Example Pattern-as-Code Definition
 
