@@ -1,5 +1,5 @@
 # Analysis
-The **Analysis Engine** is the core component of KubePattern responsible for executing the logic defined in the [Patterns](patterns) and generating actionable insights ([Smells](smells)) based on the state of the Kubernetes cluster.
+The **Analysis Engine** is the core component of KubePattern responsible for executing the logic defined in the [Patterns](pattern-as-code) and generating actionable insights ([Smells](smells)) based on the state of the Kubernetes cluster.
 
 For every Pattern loaded into the system, the engine executes a well-defined pipeline:
 
