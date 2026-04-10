@@ -16,6 +16,28 @@ To perform its analysis, the engine needs to retrieve data from the Kubernetes c
 - **Error Handling**: The engine includes robust error handling mechanisms to manage API errors, timeouts, and other issues (e.g., rbac issues).
 - **Inheritance Fetching 🔥**: The engine rebuilds the inheritance tree of resources, fetching all relevant parent and child resources as needed.
 
+## Workflow
+```plaintext
++-----------------------------------------------------------------------------+
+|                            K8s CLUSTER                                      |
+|                                                                             |
+|                                                                             |
+|                                     ((CronJob))                             |
+|                                          |                                  |
+|                                          | (Time based trigger)             |
+|                                          v                                  |
+|  +--------------------+         +-----------------+                         |
+|  |    Pattern CRDs    |-------->|                 |                         |
+|  +--------------------+ (Fetch) |                 |        +-------------+  |
+|                                 |   KubePattern   |=======>| Smell CRDs  |  |
+|                                 |     Engine      |(Result)+-------------+  |
+|  +--------------------+         |                 |        | (Violations |  |
+|  | Cluster Resources  |-------->|                 |        |   & issues) |  |
+|  | (Pods, Svcs, CRs)  | (Lazy   +-----------------+        +-------------+  |
+|  +--------------------+ Fetch)                                              |
+|                                                                             |
++-----------------------------------------------------------------------------+
+```
 ## Core Components of the Engine
 
 To perform its job efficiently, the Analysis Engine is divided into three main logical components.
