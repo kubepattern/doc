@@ -9,14 +9,19 @@ slug: /
 
 It is useful to identify Custom Resources that deviate from architectural principles and to suggest the correct pattern to apply as a remedy.
 
-### How KubePattern works
+## How KubePattern works
 
 **KubePattern** helps you identify "smells" (anti-patterns or design flaws) in your cluster defined by the applied [Patterns](core/patterns).
 
-How KubePattern works
-1. **Scan**: KubePattern analyzes your cluster configuration
-2. **Detect**: Identifies smells based on the defined patterns
-3. **Suggest**: Recommends appropriate patterns based on best practices
+### The Process
+
+1. **Define Patterns**: You define architectural patterns as Kubernetes Custom Resources ([Patterns](core/patterns)) in your cluster
+2. **Apply Patterns**: You apply these patterns to your cluster.
+3. **Retrieve Patterns**: KubePattern retrieves the defined patterns from the cluster
+4. **Retrieve Resources**: KubePattern analyzes your cluster configuration
+5. **Detect**: Identifies targets resources based on the defined patterns
+6. **Warn**: Generates reports with severity levels and actionable recommendations
+7. **Remediate**: Once a smell is resolved, Smells are automatically removed from the cluster
 
 ::: info
 
@@ -24,10 +29,10 @@ Unlike traditional linters that only verify field presence, KubePattern identifi
 
 :::
 
-### Pattern as Code
+## Pattern as Code
 KubePattern uses a **Pattern-as-Code** approach, allowing you to define architectural rules and best practices as Kubernetes Custom Resources ([Patterns](core/patterns)). This means you can codify your desired architecture directly within the cluster and have KubePattern automatically detect deviations from it.
 
-### Comprehensive Reporting
+## Comprehensive Reporting
 
 KubePattern generates detailed reports of detected smells, including severity levels, affected resources, and actionable recommendations. These reports are stored as Kubernetes Custom Resources ([Smells](core/smells)), allowing you to query and manage them using standard Kubernetes tools.
 
