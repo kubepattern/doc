@@ -7,14 +7,13 @@ slug: /
 
 ## What is KubePattern?
 
-**KubePattern** is a Kubernetes smells detection engine written in Go, that helps you identify and fix anti-patterns in your Kubernetes cluster.
+**KubePattern** is a cloud-native framework, written in Go, designed to analyze Kubernetes Resources Interactions and spot violations.
 
 It is useful to identify Custom Resources that deviate from architectural principles and to suggest the correct pattern to apply as a remedy.
 
 ### How KubePattern works
 
-**KubePattern** helps you identify "smells" (anti-patterns or design flaws) in your cluster, which are defined in the **pattern-as-code** file. It then suggests you *apply* the correct **pattern** to resolve them.
-
+**KubePattern** helps you identify "smells" (anti-patterns or design flaws) in your cluster defined by the applied [Patterns](core/patterns).
 
 How KubePattern works
 1. **Scan**: KubePattern analyzes your cluster configuration
