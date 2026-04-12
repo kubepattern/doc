@@ -1,6 +1,6 @@
 # KubePattern Patterns
 
-KubePattern Patterns are Kubernetes Custom Resources used to define metrics and relationships that identify architectural issues in Kubernetes manifests. They are the core building blocks of KubePattern's analysis capabilities, allowing users to codify their architectural rules and best practices directly within the cluster.
+KubePattern `Patterns` are Kubernetes Custom Resources used to define **metrics** and **relationships** that identify *architectural issues* in Kubernetes. They are the core building blocks of KubePattern's analysis capabilities, allowing users to codify their architectural rules and best practices directly within the cluster.
 
 # API Documentation `v1`
 

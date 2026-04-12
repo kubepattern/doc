@@ -28,12 +28,11 @@ Unlike traditional linters that only verify field presence, KubePattern identifi
 :::
 
 ### Pattern as Code
-
-**Pattern-as-Code (PaC)** is a Kubernetes Custom Resource Definition (CRD) that allows you to define metrics and patterns to recognize Kubernetes resources that deviate from architectural principles and best practices. They also are comprehensive of a remediation reverence documentation and a severity level to prioritize the most critical issues.
+KubePattern uses a **Pattern-as-Code** approach, allowing you to define architectural rules and best practices as Kubernetes Custom Resources ([Patterns](core/patterns)). This means you can codify your desired architecture directly within the cluster and have KubePattern automatically detect deviations from it.
 
 ### Comprehensive Reporting
 
-KubePattern generates detailed reports of detected smells, including severity levels, affected resources, and actionable recommendations. These reports are stored as Kubernetes Custom Resources (`Smells`), allowing you to query and manage them using standard Kubernetes tools.
+KubePattern generates detailed reports of detected smells, including severity levels, affected resources, and actionable recommendations. These reports are stored as Kubernetes Custom Resources ([Smells](core/smells)), allowing you to query and manage them using standard Kubernetes tools.
 
 ## KubePattern & Kubernetes Patterns
 
