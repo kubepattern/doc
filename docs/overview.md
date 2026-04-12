@@ -3,9 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# Overview
-
-## What is KubePattern?
+# What is KubePattern?
 
 **KubePattern** is a cloud-native framework, written in Go, designed to analyze Kubernetes Resources Interactions and spot violations.
 
