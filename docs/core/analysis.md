@@ -1,5 +1,5 @@
 # Analysis
-The **Analysis Engine** is the core component of KubePattern responsible for executing the logic defined in the [Patterns](pattern-as-code) and generating actionable insights ([Smells](smells)) based on the state of the Kubernetes cluster.
+The **Analysis Engine** is the core component of KubePattern responsible for executing the logic defined in the [Patterns](patterns) and generating actionable insights ([Smells](smells)) based on the state of the Kubernetes cluster.
 
 For every Pattern loaded into the system, the engine executes a well-defined pipeline:
 
@@ -17,27 +17,7 @@ To perform its analysis, the engine needs to retrieve data from the Kubernetes c
 - **Inheritance Fetching 🔥**: The engine rebuilds the inheritance tree of resources, fetching all relevant parent and child resources as needed.
 
 ## Workflow
-```plaintext
-+-----------------------------------------------------------------------------+
-|                            K8s CLUSTER                                      |
-|                                                                             |
-|                                                                             |
-|                                     ((CronJob))                             |
-|                                          |                                  |
-|                                          | (Time based trigger)             |
-|                                          v                                  |
-|  +--------------------+         +-----------------+                         |
-|  |    Pattern CRDs    |-------->|                 |                         |
-|  +--------------------+ (Fetch) |                 |        +-------------+  |
-|                                 |   KubePattern   |=======>| Smell CRDs  |  |
-|                                 |     Engine      |(Result)+-------------+  |
-|  +--------------------+         |                 |        | (Violations |  |
-|  | Cluster Resources  |-------->|                 |        |   & issues) |  |
-|  | (Pods, Svcs, CRs)  | (Lazy   +-----------------+        +-------------+  |
-|  +--------------------+ Fetch)                                              |
-|                                                                             |
-+-----------------------------------------------------------------------------+
-```
+![Analysis Engine](/img/engine.png)
 ## Core Components of the Engine
 
 To perform its job efficiently, the Analysis Engine is divided into three main logical components.

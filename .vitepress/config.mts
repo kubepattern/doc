@@ -63,7 +63,7 @@ export default defineConfig({
         text: 'Core Concepts',
         items: [
           { text: 'Analysis', link: '/docs/core/analysis' },
-          { text: 'Pattern as Code', link: '/docs/core/pattern-as-code' },
+          { text: 'Pattern as Code', link: '/docs/core/patterns' },
           { text: 'Registry', link: '/docs/core/registry' },
           { text: 'Smells', link: '/docs/core/smells' }
         ]

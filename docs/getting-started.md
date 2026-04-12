@@ -27,7 +27,7 @@ helm upgrade --install kubepattern oci://ghcr.io/kubepattern/charts/kubepattern 
 ## Writing Custom Patterns
 KubePattern allows you to define custom patterns to detect specific architectural issues in your Kubernetes cluster. To create a new pattern, you can write a YAML manifest that defines the pattern's name, description, and the logic for detecting the issue.
 
-Here is the guide to write a custom pattern: [API Reference](/docs/core/pattern-as-code).
+Here is the guide to write a custom pattern: [API Reference](/docs/core/patterns).
 
 Further examples of custom patterns can be found in the [KubePattern Registry](https://github.com/kubepattern/registry).
 
