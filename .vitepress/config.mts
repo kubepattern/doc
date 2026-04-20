@@ -56,6 +56,7 @@ export default defineConfig({
         items: [
           { text: 'Overview', link: '/docs' },
           { text: 'Getting Started', link: '/docs/getting-started' },
+          { text: 'Use Cases', link: '/docs/usecases' },
           { text: 'Roadmap', link: '/docs/roadmap' }
         ]
       },
